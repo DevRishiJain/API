@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: task-management-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: task-management-db
+          property: connectionString
+
+databases:
+  - name: task-management-db
+    databaseName: taskmanagement
+    ipAllowList: []  # allow all IPs

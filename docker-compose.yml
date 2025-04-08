@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: task-api
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - SECRET_KEY=development_secret_key_123
+      - JWT_SECRET_KEY=development_jwt_secret_key_456
+      - DATABASE_URL=sqlite:////app/data/tasks.db
+    command: gunicorn --bind 0.0.0.0:5000 wsgi:app
