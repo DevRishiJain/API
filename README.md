@@ -79,7 +79,7 @@ A RESTful API for managing tasks with user authentication, built with Flask and 
 
 This API is deployed on Render. 
 
-- Deployed API URL: [https://task-management-api.onrender.com](https://task-management-api.onrender.com)
+- Deployed API URL: [https://api-2-e7ut.onrender.com](https://api-2-e7ut.onrender.com)
 
 ### Deployment Steps on Render
 
